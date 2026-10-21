@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Websites by Sorokhaibam Nungsiba Singh</title>
+<style>
+:root{
+  --bg:#f1f0eb; --ink:#1c2626; --muted:#566362; --line:#cdd2ca; --card:#e6eae1; --accent:#1f5f5b; --accent2:#b8862b;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#121a1a;--ink:#e6ece8;--muted:#9fb0ac;--line:#2c3a39;--card:#1a2524;--accent:#6fc3bb;--accent2:#e0b255}
+}
+:root[data-theme="dark"]{--bg:#121a1a;--ink:#e6ece8;--muted:#9fb0ac;--line:#2c3a39;--card:#1a2524;--accent:#6fc3bb;--accent2:#e0b255}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65;font-size:18px}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+header{padding:72px 0 36px;border-bottom:1px solid var(--line)}
+.by{margin:0 0 10px;color:var(--accent);font-weight:700;font-size:1rem}
+h1{font-size:clamp(2rem,7vw,3.2rem);line-height:1.1;margin:0 0 14px}
+.lead{color:var(--muted);margin:0;max-width:52ch}
+main{padding:36px 0 24px}
+.list{display:grid;gap:14px}
+.card{background:var(--card);border-left:4px solid var(--accent2);padding:16px 18px;border-radius:2px}
+.card h2{margin:0 0 4px;font-size:1.2rem}
+.card p{margin:0 0 12px;color:var(--muted);font-size:.95rem}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{font-size:.92rem;padding:7px 14px;border-radius:99px;text-decoration:none;border:1px solid var(--accent);color:var(--accent)}
+.links a.main{background:var(--accent);color:var(--bg)}
+.links a:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+footer{padding:28px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="by">A website by Sorokhaibam Nungsiba Singh</p>
+  <h1>My hosted websites</h1>
+  <p class="lead">A collection of the websites and projects I have built and hosted on GitHub, from Imphal West, Manipur.</p>
+</header>
+
+<main>
+  <div class="list" id="list"></div>
+</main>
+
+<footer>© Sorokhaibam Nungsiba Singh. Built and hosted by me.</footer>
+</div>
+
+<script>
+/* ============================================================
+   ADD YOUR WEBSITES HERE.
+   Copy one block { ... }, paste it below the last one with a comma,
+   then change the name, description, live link and GitHub link.
+   Leave a link as "" if you do not have it yet.
+   ============================================================ */
+var SITES = [
+  {
+    name: "My Portfolio",
+    desc: "My personal website with my studies, projects and interests.",
+    live: "https://nungsiba.github.io/nungsiba/",
+    repo: "https://github.com/nungsiba/nungsiba"
+  },
+  {
+    name: "Soul Reaper: Kangleipung Evolution",
+    desc: "An action RPG game built with Phaser.js.",
+    live: "https://nungsiba.github.io/Evolution/",
+    repo: "https://github.com/nungsiba/Evolution"
+  },
+  {
+    name: "The Study Blueprint",
+    desc: "An educational website with exam strategies and roadmaps for students.",
+    live: "https://jonu6767-web.github.io/TheStudyBlueprint/",
+    repo: "https://github.com/jonu6767-web/TheStudyBlueprint"
+  },
+  {
+    name: "The Nature of Life",
+    desc: "A three-part story and poem series that shows the nature of life.",
+    live: "https://nungsiba.github.io/Story/",
+    repo: "https://github.com/nungsiba/Story"
+  }
+  /* To add another website, put a comma after the block above and paste:
+  ,{
+    name: "Website name",
+    desc: "Short line about it.",
+    live: "https://nungsiba.github.io/repo-name/",
+    repo: "https://github.com/nungsiba/repo-name"
+  }
+  */
+];
+
+var list = document.getElementById("list");
+SITES.forEach(function (s) {
+  var card = document.createElement("div"); card.className = "card";
+  var h = document.createElement("h2"); h.textContent = s.name; card.appendChild(h);
+  if (s.desc) { var p = document.createElement("p"); p.textContent = s.desc; card.appendChild(p); }
+  var links = document.createElement("div"); links.className = "links";
+  [["Visit website", s.live, "main"], ["GitHub repository", s.repo, ""]].forEach(function (l) {
+    if (!l[1]) return;
+    var a = document.createElement("a"); a.href = l[1]; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.textContent = l[0]; if (l[2]) a.className = l[2]; links.appendChild(a);
+  });
+  card.appendChild(links); list.appendChild(card);
+});
+</script>
+</body>
+</html>
